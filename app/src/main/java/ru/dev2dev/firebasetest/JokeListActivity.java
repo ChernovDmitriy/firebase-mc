@@ -27,6 +27,7 @@ import com.google.firebase.database.Transaction;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.Executors;
 
 import ru.dev2dev.firebasetest.models.Joke;
 
@@ -135,7 +136,7 @@ public class JokeListActivity extends BaseActivity {
 
     private void saveJoke(String jokeText) {
 
-        Joke joke = new Joke(
+        final Joke joke = new Joke(
                 new SimpleDateFormat("dd.MM.yyyy HH:mm").format(new Date()),
                 jokeText,
                 firebaseUser.getEmail()
